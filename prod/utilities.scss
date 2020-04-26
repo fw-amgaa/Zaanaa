@@ -1,0 +1,495 @@
+// Variables
+
+
+$theme-color: rgb(248, 41, 248);
+$black-shade: rgba(41,51,65,1);
+$text-color: #333;
+$footer-text-color: #727272;
+$footer-background: rgba(0, 0, 0, 0.918);
+$price-color: #818181;
+
+// Container Utilities
+
+.u__flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.u__responsible-container{
+    max-width: 1400px;
+    margin: auto;
+}
+@media screen and (max-width: 1500px){
+    .u__responsible-container{
+        max-width: 1300px;
+    }
+}
+@media screen and (max-width: 1366px){
+    .u__responsible-container{
+        max-width: 1200px;
+    }
+}
+@media screen and (max-width: 1250px){
+    .u__responsible-container{
+        padding-left: 15px;
+        padding-right: 15px;        
+    }
+}
+
+
+// Search bar
+
+.u__search{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border: 2px solid #ddd;
+    font-size: 14px;
+    &--categories{
+        padding: 0 24px;
+        border-right: 1px solid $black-shade;
+        .u__tabs--dropdown::after {
+            margin-left: 30px;
+        }
+    }
+    &--type{
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 45px;
+        input{
+            font-size: 14px;
+            border: none;
+            margin-left: 16px;
+            min-width: 350px;
+        }
+        button{
+            position: absolute;
+            border: 0;
+            border-radius: 0;
+            background-color: $theme-color;
+            height: 45px;
+            width: 45px;
+            right: -2px;
+            i{
+                color: white;
+                font-size: 20px;
+            }
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+// Notification circle
+.u__notif-container{
+    position: relative;
+    i{
+        font-size: 24px;
+        font-weight: 100;
+        display: block;
+        margin-top: 2px;
+    }
+    .u__notif-counter{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        color: white;
+        background-color: $theme-color;
+        opacity: 1;
+        top: -4px;
+        left: 14px;
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        border-radius: 50%;
+        text-align: center;
+    }
+}
+.u__notif-container:hover{
+    color: $theme-color;
+    cursor: pointer;
+}
+
+
+// Hover pop-up
+
+.u__hover-popup{
+    position: relative;
+    transition: ease-in-out .3s;
+    &--content{
+        visibility: hidden;
+        position: absolute;
+        transition: all ease-out .3s;
+        color: $text-color;
+        font-size: 14px;
+        z-index: 9;
+        top: calc(100% + 5px);
+        padding: 2px 20px;
+        line-height: 40px;
+        background: #fff;
+        border: 1px solid #eee;
+        box-shadow: 0px 3px 10px 0px rgba(0,0,0,.1);
+        transform: translateY(30%);
+        opacity: 0;
+        right: 0;
+        width: max-content;
+        transition: ease-in-out .2s;
+        &--list{
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            padding: 8px 0;
+            li:not(:last-child){
+                border-bottom: 1px solid gray;
+            }
+            li:last-child:hover::after{
+                width: 0;
+            }
+        }
+    }
+}
+.u__hover-popup:hover .u__hover-popup--content{
+    visibility: visible;
+    opacity: 1;
+    color: #333;
+    transform: translateY(0);
+    transition: ease-in-out .2s;
+}
+
+// Dropdown tab
+
+.u__tabs--dropdown::after {
+    content: "\f107";
+    font-family: fontawesome;
+    margin-left: 10px;
+}
+
+// E-Mail form
+
+.u__emailform{
+    display: block;
+    position: relative;
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    border: solid 1px #8a8a8a;
+    border-radius: 0;
+    input{
+        background-color: transparent;
+        border: none;
+        color: $footer-text-color;
+        height: 45px;
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    &--button{
+        position: absolute;
+        z-index: 1;
+        top: 1px;
+        right: 1px;
+        height: 41px;
+        line-height: 41px;
+        background: $theme-color;
+        color: #ffff;
+        appearance: none;
+        border-radius: 0;
+        border: none;
+        padding: 0 15px;
+        font-size: 14px;
+        font-weight: 400;
+        z-index: 1;
+        transition: all ease .35s;
+    }
+    &--button:hover{
+        cursor: pointer;
+    }
+}
+
+
+// Mobile search
+.u__mobile--search{
+    position: relative;
+    width: 100%;
+    height: 45px;
+
+    // Input
+    &--input{
+        height: 45px;
+        width: calc(100% - 45px);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        line-height: 45px;
+        padding: 0 0 0 10px;
+        border: 1px solid #eee;
+        font-size: 14px;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+    }
+    
+    // Button
+    &--button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 41px;
+        height: 41px;
+        z-index: 5;
+        cursor: pointer;
+        background-color: $theme-color;
+        i{
+            color: white;
+            font-size: 20px;
+        }
+    }
+}
+
+
+
+
+// Card item
+
+.u__card{
+    width: 100%;
+    &--content{
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding-top: 100%;
+        overflow: hidden;
+        &--image{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &--hoverimg{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            transition: ease .4s;
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+    }
+    &--info{
+        &--name{
+            font-size: 18px;
+            font-weight: 500;
+            padding: 18px 0 0;
+            transition: ease-in-out .25s;
+        }
+        &--name:hover{
+            color: $theme-color;
+            cursor: pointer;
+            transition: ease-in-out .25s;
+        }
+        &--price{
+            font-size: 16px;
+            font-weight: 400;
+            color: $price-color;
+            margin-bottom: 0;
+        }
+    }
+    &--content:hover{
+        cursor: pointer;
+    }
+}
+
+// Card item hover
+.u__hover{
+    &--compare{
+        position: absolute;
+        top: 5px;
+        right: 0;
+        z-index: 9;
+        font-size: 12px;
+        width: 40px;
+        color: #fff;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all .4s cubic-bezier(.77,0,.175,1);
+        &--box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            margin: 2px 0px 5px -7px;
+            transition: all .4s cubic-bezier(.77,0,.175,1);
+            i{
+                font-size: 24px;
+                transition: color .2s,background .3s;
+            }
+        }
+        &--box:hover{
+            background-color: $theme-color;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    &--cart{
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        visibility: hidden;
+        opacity: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .4s cubic-bezier(.77,0,.175,1);
+        a{
+            text-decoration: none;
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            background: #333;
+            cursor: pointer;
+            border-radius: 0;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+            display: inline-block;
+            width: 49.5%;
+            text-align: center;
+            transition: color .2s,background .3s;
+        }
+        a:hover{
+            background: $theme-color;
+        }
+    }
+}
+
+
+
+.u__card:hover .u__hover--compare, 
+.u__card:hover .u__hover--cart,
+.u__card:hover .u__card--content--hoverimg,
+.u__card:focus .u__hover--compare, 
+.u__card:focus .u__hover--cart,
+.u__card:focus .u__card--content--hoverimg{
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0);
+    cursor: pointer;
+}
+
+
+.u-orderby{
+    border: none;
+    background: #f7f7f7;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-image: none;
+    padding: 10px 5px;
+    font-size: 13px;
+    color: #a9a9a9;
+    border: none;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 45px 0 15px;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    -ms-appearance: none;
+    -o-appearance: none;
+    background-repeat: no-repeat !important;
+    background-image: url(//demo.accesspressthemes.com/zigcy/demo-one/wp-content/themes/zigcy/assets/images/down-arrow.png) !important;
+    position: relative;
+    background-position: right 10px center !important;
+    width: 100%;
+    font-size: 14px;
+    color: #333;
+}
+
+
+
+.u-nav{
+    line-height: .8;
+    text-align: center;
+    ul{
+        margin: 0;
+        border: none;
+        display: flex;
+        white-space: nowrap;
+        padding: 0;
+        clear: both;
+        li{
+            border: none;
+            background: 0 0;
+            a{
+                font-weight: 500;
+                font-size: 16px;
+                padding: 0 15px;
+                text-decoration: none;
+                color: gray;
+            }
+        }
+    }
+    &_current{
+        color: black !important;
+    }
+}
+
+
+
+// List product (small)
+
+.u-smallitem{
+    display: block;
+    color: #222;
+    font-weight: 500;
+    padding-right: 5px;
+    word-break: break-all;
+    transition: all ease .3s;
+    text-decoration: none;
+    img{
+        float: left;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+    &__title{
+        transition: ease-in-out .3s;
+    }
+    &__amount{
+        display: block;
+        color: #777;
+        font-size: 14px;
+    }
+}
+.u-smallitem:hover .u-smallitem__title{
+    color: $theme-color;
+    transition: ease-in-out .3s;
+}
