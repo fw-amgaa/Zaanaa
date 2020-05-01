@@ -1,26 +1,17 @@
 {
-  "name": "Zaanaa",
-  "version": "1.0.0",
-  "description": "Ecommerce Store with Express and Heroku",
-  "main": "index.js",
+  "name": "zaanaa",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mnkhod/Zaanaa.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mnkhod/Zaanaa/issues"
-  },
-  "homepage": "https://github.com/mnkhod/Zaanaa#readme",
   "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.3"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "node-sass-middleware": "0.11.0"
   }
 }
