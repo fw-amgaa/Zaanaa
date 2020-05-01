@@ -1,19 +1,31 @@
-// @use 'abstracts/';
+@import
+  'base/reset',
+  'base/variables';
 
+@import
+  'components/atom',
+  'components/card',
+  'components/cart',
+  'components/content',
+  'components/featured',
+  'components/header',
+  'components/list-product',
+  'components/login-signup',
+  'components/nav',
+  'components/pageheader',
+  'components/share-btn',
+  'components/footer';
 
-//@use 'vendors/';
+@import
+  'utils/container',
+  'utils/dropdown-tab',
+  'utils/email-form',
+  'utils/hover-pop',
+  'utils/mobile-search',
+  'utils/notif-circles',
+  'utils/orderby',
+  'utils/search-bar';
 
-
-//@use 'base/';
-
-
-//@use 'layout/';
-
-
-//@use 'components/';
-
-
-//@use 'pages/';
-
-
-//@use 'themes/';
+@import
+  'vendors/swiper';
+  

@@ -1,0 +1,26 @@
+ .u-nav{
+    line-height: .8;
+    text-align: center;
+    ul{
+        margin: 0;
+        border: none;
+        display: flex;
+        white-space: nowrap;
+        padding: 0;
+        clear: both;
+        li{
+            border: none;
+            background: 0 0;
+            a{
+                font-weight: 500;
+                font-size: 16px;
+                padding: 0 15px;
+                text-decoration: none;
+                color: gray;
+            }
+        }
+    }
+    &_current{
+        color: black !important;
+    }
+}

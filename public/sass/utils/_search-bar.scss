@@ -1,0 +1,42 @@
+ .u__search{
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border: 2px solid #ddd;
+    font-size: 14px;
+    &--categories{
+        padding: 0 24px;
+        border-right: 1px solid $black-shade;
+        .u__tabs--dropdown::after {
+            margin-left: 30px;
+        }
+    }
+    &--type{
+        display: flex;
+        align-items: center;
+        position: relative;
+        height: 45px;
+        input{
+            font-size: 14px;
+            border: none;
+            margin-left: 16px;
+            min-width: 350px;
+        }
+        button{
+            position: absolute;
+            border: 0;
+            border-radius: 0;
+            background-color: $theme-color;
+            height: 45px;
+            width: 45px;
+            right: -2px;
+            i{
+                color: white;
+                font-size: 20px;
+            }
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+}

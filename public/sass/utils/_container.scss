@@ -1,0 +1,32 @@
+.u__flex-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.u__flex-container2{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.u__responsible-container{
+    max-width: 1400px;
+    margin: auto;
+}
+@media screen and (max-width: 1500px){
+    .u__responsible-container{
+        max-width: 1300px;
+    }
+}
+@media screen and (max-width: 1366px){
+    .u__responsible-container{
+        max-width: 1200px;
+    }
+}
+@media screen and (max-width: 1250px){
+    .u__responsible-container{
+        padding-left: 15px;
+        padding-right: 15px;        
+    }
+}
+ 

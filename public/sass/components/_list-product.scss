@@ -1,0 +1,30 @@
+// List product (small)
+
+.u-smallitem{
+    display: block;
+    color: #222;
+    font-weight: 500;
+    padding-right: 5px;
+    word-break: break-all;
+    transition: all ease .3s;
+    text-decoration: none;
+    img{
+        float: left;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+    &__title{
+        transition: ease-in-out .3s;
+    }
+    &__amount{
+        display: block;
+        color: #777;
+        font-size: 14px;
+    }
+}
+.u-smallitem:hover .u-smallitem__title{
+    color: $theme-color;
+    transition: ease-in-out .3s;
+} 

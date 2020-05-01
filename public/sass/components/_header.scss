@@ -1,0 +1,280 @@
+.c__header{
+    // Computer breakpoint. Seperate header for PC and Laptop shows.
+    &--computer{
+        display: block;
+    }
+    @media screen and (max-width: 992px){
+        &--computer{
+            display: none;
+        }
+    }
+
+    // Contact Info / Social Links
+    &--top{
+        background-color: $black-shade;
+        width: 100%;
+
+        &--contact{
+            font-size: 12px;
+            color: white;
+            padding: 10px 0;
+        }
+        i{
+            margin: 10px;
+            color: white;
+            transition: ease-in-out .2s;
+        }
+        i:hover{
+            color: $theme-color;
+            cursor: pointer;
+            transition: ease-in-out .2s; 
+        }
+    }
+
+    // Logo / Search / Browse / Tabs
+    &--bot{
+        width: 100%;
+
+        // Logo / Search
+        &--top{
+            padding: 20px 0;
+            &--logo{
+                img{
+                    width: 130px;
+                    height: 50px;
+                    object-fit: cover;
+                }
+                img:hover{
+                    cursor: pointer;
+                }
+            }
+            &--login{
+                &--icon{
+                    margin: 0 16px;
+                }
+            }
+        }
+
+        // Browse / Tabs
+        &--menu{
+            margin: 0;
+            padding: 0;
+            &--browse{
+                display: flex;
+                align-items: center;
+                color: white;
+                width: 220px;
+                padding: 12px 16px;
+                text-align: center;
+                background-color: $theme-color;
+                z-index: 10;
+                i{
+                    font-size: 22px;
+                    margin-right: 12px;
+                }
+            }
+            &--browse:hover{
+                cursor: pointer;
+            }
+            &--tabs{
+                ul{
+                    display: flex;
+                    li{
+                        display: inline-block;
+                        list-style: none;
+                        font-family: Poppins, sans-serif;
+                        font-size: 14px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        margin: 0 16px;
+                        color: #333;
+                        transition: ease-in-out .2s;
+                        a{
+                            text-decoration: none;
+                            color: inherit;
+                        }
+                    }
+                    li:hover{
+                        color: $theme-color;
+                        cursor: pointer;
+                        transition: ease-in-out .2s;
+                    }
+                    li::after {
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: 1px;
+                        background: $theme-color;
+                        transition: width .6s;                      
+                    }
+                    
+                    li:hover::after {
+                        width: 100%;
+                        transition: ease-in-out .2s;
+                    }
+
+                }
+            }
+            &--cart{
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                font-weight: 400;
+                transition: ease-in-out .2s;
+
+                // Cart Icon
+                &--icon{
+                    position: relative;
+                    margin-right: 10px;
+
+                }
+
+
+                // Cart Amount
+                &--amount{
+                    margin-left: 10px;
+                    font-weight: 500;
+                    text-align: right;
+                    &--tag{
+                        border-bottom: 1px solid $text-color;
+                    }
+                }
+            }
+            &--cart:hover{
+                cursor: pointer;
+                color: $theme-color;
+                .c__header--bot--menu--cart--amount--tag{
+                    border-bottom: 1px solid $theme-color;
+                    transition: ease-in-out .2s;
+                }
+                transition: ease-in-out .2s;
+            }
+            
+        }
+    }
+
+
+
+    // Mobile breakpoint. Seperate header for Mobile and Tablet shows.
+    &--mobile{
+        display: none;
+    }
+    @media screen and (max-width: 992px){
+        &--mobile{
+            display: block;
+        }
+    }    
+
+    // Mobile header
+
+    &--mobile{
+
+        // Top header
+        &--wrapper{
+            padding: 10px 25px 10px 15px;
+
+            // Tabs
+            &--tabs{
+                i{
+                    font-size: 24px;
+                    transition: ease-in-out .2s;
+                }
+                i:hover{
+                    color: $theme-color;
+                    transition: ease-in-out .2s;
+                    cursor: pointer;
+                }
+            }
+
+            // Logo
+            &--logo{
+                a{
+                    img{
+                        width: 140px;
+                    }
+                }
+            }
+        }
+
+        // Mobile click navigation
+        &--nav{
+            &--tab{
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 99999;
+                background: #fff;
+                width: 100%;
+                max-width: 350px;
+                height: 100vh;                    
+                overflow: auto;
+                padding: 30px 20px;
+                transform: translateX(-100%);
+                transition: all ease .3s .5s;
+                
+                // Nav Logo
+                &--top{
+                    display: flex;
+                    justify-content: space-between;
+                    img{
+                        width: 140px;
+                    }
+                    i{
+                        font-size: 26px;
+                        cursor: pointer;
+                    }
+                } 
+
+                // Nav Search
+                &--search{
+                    display: block;
+                    margin: 30px 0;
+                }
+
+                // List
+                &--list{
+                    ul{
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                        li{
+                            display: block;
+                            font-size: 14px;
+                            margin-bottom: 20px;
+                            position: relative;
+                            transition: ease .2s;
+                        }
+                        li:first-child{
+                            margin-top: 15px;
+                        }
+                        li:hover{
+                            cursor: pointer;
+                            color: $theme-color;
+                            transition: ease .2s;
+                        }
+                    }
+                }
+
+                // Share
+                i{
+                    font-size: 24px;
+                    margin: 10px;
+                    color: black;
+                    transition: ease-in-out .2s;
+                }
+                i:hover{
+                    color: $theme-color;
+                    cursor: pointer;
+                    transition: ease-in-out .2s; 
+                }
+
+            }
+             .active {
+                box-shadow: 1px 1px 5px 1px rgba(0,0,0,.075);
+                transform: translateX(0);
+            }
+
+        }
+    }
+}
+ 

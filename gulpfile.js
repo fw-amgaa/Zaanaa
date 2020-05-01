@@ -4,9 +4,25 @@ const browserSync = require('browser-sync');
 const nodemon = require('gulp-nodemon');
 
 var reload = browserSync.reload;
+var sass = require('gulp-sass');
 
-//SERVER
+sass.compiler = require('node-sass');
 
+// SASS
+
+gulp.task('sass', function () {
+
+  return gulp.src('./public/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./public/css'));
+
+});
+
+gulp.task('watch', function () {
+  gulp.watch('./public/sass/**/*.scss', gulp.series('sass'));
+});
+
+// //SERVER
 
 gulp.task('server', function (cb) {
   var called = false;
@@ -38,4 +54,4 @@ function browserSyncInit() {
 }
 
 
-gulp.task('default', gulp.series('server'));
+gulp.task('default', gulp.series('server','watch'));
