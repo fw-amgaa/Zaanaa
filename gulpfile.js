@@ -2,6 +2,9 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync');
 const nodemon = require('gulp-nodemon');
+const postcss = require('gulp-postcss');
+const prefix = require('autoprefixer');
+const nano = require('cssnano');
 
 var reload = browserSync.reload;
 var sass = require('gulp-sass');
@@ -14,6 +17,7 @@ gulp.task('sass', function () {
 
   return gulp.src('./public/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
+    .pipe(postcss([ prefix() , nano()])) // Prefix Then Nano
     .pipe(gulp.dest('./public/css'));
 
 });
@@ -54,4 +58,4 @@ function browserSyncInit() {
 }
 
 
-gulp.task('default', gulp.series('server','watch'));
+gulp.task('default', gulp.series('sass','server','watch'));
