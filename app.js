@@ -33,6 +33,10 @@ app.use('/login', (req,res) => {
   res.render('login');
 });
 
+app.use('/signup', (req,res) => {
+  res.render('signup');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
