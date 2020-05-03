@@ -84,6 +84,7 @@
                             color: $theme-color;
                             text-decoration: none;
                             transition: ease .2s;
+                            color: inherit;
                         }
                         a:hover{
                             color: black;
