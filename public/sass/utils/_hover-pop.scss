@@ -72,9 +72,9 @@
                             .u__hover-popup--content--cart--content--price{
                                 color: #777;
                                 display: inline;
-                            }
-                        }
-                        a{
+                            } 
+                        }  
+                        a{  
                             position: absolute;
                             top: 50%;
                             right: 0;
@@ -84,10 +84,10 @@
                             color: $theme-color;
                             text-decoration: none;
                             transition: ease .2s;
-                            color: inherit;
+                            color: black;
                         }
                         a:hover{
-                            color: black;
+                            color: $theme-color;
                             transition: ease .2s;
                         }
                     }
@@ -193,6 +193,9 @@
     color: #333;
     transform: translateY(0);
     transition: ease-in-out .2s;
+    a{
+        color: inherit;
+    }
 }
 .u__hover-popup:hover .u__hover-popup--dropdown{
     visibility: visible;
