@@ -7,7 +7,6 @@ router.get('/', function(req, res, next) {
 });
 
 // Single
-// WTF AMGAA
 router.get('/:categoryName/:name', function(req, res, next) {
   res.render('single-product');
 });
