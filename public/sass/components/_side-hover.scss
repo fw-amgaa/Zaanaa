@@ -5,11 +5,11 @@
     position: relative;
     width: 100%;
     height: 100%;
+    color: black;
+    background: white;
+    transition: .5s ease;
     i{
-        color: black;
-        background: white;
         font-size: 24px;
-        transition: all .3s cubic-bezier(.77,0,.175,1);
     }
 }
 .u-sidehover_box{
@@ -21,7 +21,7 @@
     padding: 4px 10px;
     width: max-content;
     text-align: center;
-    transition: all .3s cubic-bezier(.77,0,.175,1);
+    transition: all .3s ease;
     transform: translate(-35px,0) translateZ(0);
     visibility: hidden;
     opacity: 0;
@@ -31,12 +31,12 @@
     opacity: 1;
     visibility: visible;
     transform: translate(-46px,0);
-    transition: all .3s cubic-bezier(.77,0,.175,1);
+    transition: all .3s ease;
 }
-.u-sidehover:hover i{
+.u-sidehover:hover{
     color: white;
     background: $theme-color;
-    transition: all .3s cubic-bezier(.77,0,.175,1);
+    transition: .5s ease;
 }
 .u-sidehover_box::after{
     content: "";
