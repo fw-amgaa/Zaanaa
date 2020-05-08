@@ -5,7 +5,7 @@
     <div class="c-pageheader">
         <div class="u__responsible-container">
             <div class="c-pageheader__title">
-                <h1>Contact</h1>
+                <h1>My Profile</h1>
             </div>
         </div>
     </div>
@@ -13,8 +13,157 @@
     <!-- Content -->
     <div class="u__responsible-container">
         <div class="c-content">
-            
+            <div class="c-content__profile">
+                <div class="container--tabs">
+                    <section class="row">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab-1">Profile Information</a></li>
+                            <li class=""><a href="#tab-2">Wishlist</a></li>
+                            <li class=""><a href="#tab-3">Cart</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active"> 
+                                <span class="glyphicon glyphicon-leaf glyphicon--home--feature two columns text-center"></span>
+                                <span class="col-md-10">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                </span>
+                            </div> 
+                            <div id="tab-2" class="tab-pane">
+                                <span class="glyphicon glyphicon-fire glyphicon--home--feature two columns text-center"></span>
+                                <span class="col-md-10">
+                                    <div class="a-wrap">
+                                        <% for(let i=0; i < 12; i++) { %>
+                                            <div class="p-wishlist">
+                                                <div class="u__card">
+                                                    <div class="u__card--content">
+                                                        <div class="u__card--content--image">
+                                                            <img src="/img/items/gloves/glove1-b.jpg" alt="">
+                                                        </div>
+                                                        <div class="u__card--content--hoverimg">
+                                                            <img src="/img/items/gloves/glove1-a.jpg" alt="">
+                                                        </div>
+                                                        <div class="u__hover--compare">
+                                                            <div class="u__hover--compare--box">
+                                                                <a href="" class="u-sidehover">
+                                                                    <i class="lnr lnr-heart"></i>
+                                                                    <span class="u-sidehover_box">
+                                                                        Add to Wishlist
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                            <div class="u__hover--compare--box">
+                                                                <a href="" class="u-sidehover">
+                                                                    <i class="lnr lnr-sync"></i>
+                                                                    <span class="u-sidehover_box">
+                                                                        Compare
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="u__hover--cart">
+                                                            <a href="">Add to cart</a>
+                                                            <a href="/products/product">Quick view</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="u__card--info">
+                                                        <div class="u__card--info--name">
+                                                            <span>Comfortable Sofa</span>
+                                                        </div>
+                                                        <div class="u__card--info--price">
+                                                            <span>$450</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                
+                                        <% } %>
+                                    </div>
+                                </span>
+                            </div>
+                            <div id="tab-3" class="tab-pane">
+                                <span class="glyphicon glyphicon-tint glyphicon--home--feature two columns text-center"></span>
+                                <span class="col-md-10">
+                                    <div class="u__hover-popup--content--cart a-wrap" style="max-height: none !important;">
+                                        <ul class="cart-list">
+                                            <% for(let i=0; i < 8; i++) { %>
+                                                <li>
+                                                    <a href="/">
+                                                        <img src="/img/items/gloves/glove1-a.jpg" alt="Product">
+                                                    </a>
+                                                    <div class="u__hover-popup--content--cart--content">
+                                                        <h4>Gloves</h4>
+                                                        <span>
+                                                            1 x
+                                                            <div class="u__hover-popup--content--cart--content--price">
+                                                                $250
+                                                            </div>
+                                                        </span>
+                                                        <a href="">
+                                                            <i class="lnr lnr-cross"></i>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                            <% } %>
+                                        </ul>
+                                        <div class="cart-checkout">
+                                            <div class="u__hover-popup--content--cart--subtotal">
+                                                Subtotal: 
+                                                <div class="u__hover-popup--content--cart--subtotal_amount">
+                                                    $1240
+                                                </div>
+                                            </div>
+                                            <div class="u__hover-popup--content--cart--subtotal">
+                                                Items: 
+                                                <div class="u__hover-popup--content--cart--subtotal_amount">
+                                                    x 12
+                                                </div>
+                                            </div>
+                                            <div class="u__hover-popup--content--cart--subtotal">
+                                                Buy from: 
+                                                <select class="cart-select">
+                                                    <option value="ub">Ulaanbaatar</option>
+                                                    <option value="er">Ereen</option>
+                                                </select>
+                                            </div>
+                                            <div class="u__hover-popup--content--cart--buttons">
+                                                <a href="" class="checkout-button a-cart-button">Checkout</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        window.addEventListener("load", function() {
+	// store tabs variable
+	var myTabs = document.querySelectorAll("ul.nav-tabs > li");
+  function myTabClicks(tabClickEvent) {
+		for (var i = 0; i < myTabs.length; i++) {
+			myTabs[i].classList.remove("active");
+		}
+		var clickedTab = tabClickEvent.currentTarget;
+		clickedTab.classList.add("active");
+		tabClickEvent.preventDefault();
+		var myContentPanes = document.querySelectorAll(".tab-pane");
+		for (i = 0; i < myContentPanes.length; i++) {
+			myContentPanes[i].classList.remove("active");
+		}
+		var anchorReference = tabClickEvent.target;
+		var activePaneId = anchorReference.getAttribute("href");
+		var activePane = document.querySelector(activePaneId);
+		activePane.classList.add("active");
+	}
+	for (i = 0; i < myTabs.length; i++) {
+		myTabs[i].addEventListener("click", myTabClicks)
+	}
+});
+
+    </script>
 
 <%- include('_footer', { jsScripts : ''} ); %>
