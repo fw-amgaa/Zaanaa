@@ -6,12 +6,12 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const productRouter = require('./routes/product');
+const adminRouter = require('./routes/admin');
 
 var app = express();
 
-// view engine setup
+// Template Engine Setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -21,21 +21,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ROUTES
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/products', productRouter);
 
-app.use('/contact', (req,res) => {
-  res.render('contact');
-});
-
-app.use('/login', (req,res) => {
-  res.render('login');
-});
-
-app.use('/signup', (req,res) => {
-  res.render('signup');
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
