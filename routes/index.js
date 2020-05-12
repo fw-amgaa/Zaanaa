@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const passport = require('passport');
 
 const User= require('../models/User')
 
@@ -14,6 +15,20 @@ router.get('/contact', (req,res) => {
 
 router.get('/login', (req,res) => {
   res.render('login');
+});
+
+router.get('/logout', (req,res) => {
+  req.logout();
+  req.flash('success_msg','You Have Logged Out');
+  res.redirect('/login');
+});
+
+router.post('/login', (req,res,next) => {
+  passport.authenticate('local',{
+    successRedirect: '/admin/dashboard',
+    failureRedirect: '/login',
+    failureFlash: true,
+  })(req,res,next)
 });
 
 router.get('/signup', (req,res) => {
@@ -58,7 +73,10 @@ router.post('/signup', (req,res) => {
 	    postalCode,
 	  });
 	  
-	  newUser.save().then( (user) => res.redirect('login') ).catch( (e)=> console.log(e) );
+	  newUser.save().then( (user) => {
+	    req.flash('success_msg','You Have Successfully Registered!');
+	    res.redirect('login')
+	  } ).catch( (e)=> console.log(e) );
 	}
       })
   }

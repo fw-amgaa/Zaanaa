@@ -1,19 +1,20 @@
 var express = require('express')
 var router = express.Router();
+const { ensureAuthenticated } = require('../config/auth');
 
-router.use('/dashboard', (req,res) => {
+router.use('/dashboard',ensureAuthenticated,(req,res) => {
   res.render('admin-dashboard');
 });
 
-router.use('/profile', (req,res) => {
+router.use('/profile', ensureAuthenticated,(req,res) => {
   res.render('admin-profile');
 });
 
-router.use('/products', (req,res) => {
+router.use('/products', ensureAuthenticated,(req,res) => {
   res.render('admin-products');
 });
 
-router.use('/posts', (req,res) => {
+router.use('/posts', ensureAuthenticated,(req,res) => {
   res.render('admin-posts');
 });
 

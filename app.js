@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 // DB CONNECTION
 
@@ -19,6 +22,8 @@ const adminRouter = require('./routes/admin');
 
 var app = express();
 
+require('./config/passport')(passport);
+
 
 // Template Engine Setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +35,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'zaanaaIsLife',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+app.use(flash())
+
+app.use( (req,res,next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('errors_msg');
+  res.locals.error = req.flash('error');
+  next();
+})
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // ROUTES
 
