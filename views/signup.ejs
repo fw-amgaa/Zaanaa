@@ -17,15 +17,26 @@
         <div class="c-content u__flex-container2">
             <div class="u-login">
                 <h2>Sign Up</h2>
-                <form action="" id="signup">
+                <form action="" method="POST" id="signup">
                     <div class="u-login__input">
                         <label for="username">
-                            Username or email address
+                            Username
                             <span>
                                 *
                             </span>
                         </label>
-                        <input type="text" id="username">
+                        <input type="text" value="<%= typeof username != 'undefined' ? username : '' %>"
+			       name="username" id="username">
+                    </div>
+                    <div class="u-login__input">
+                        <label for="username">
+                            Email
+                            <span>
+                                *
+                            </span>
+                        </label>
+                        <input type="email" value="<%= typeof email != 'undefined' ? email : '' %>"
+			       name="email" id="email" >
                     </div>
                     <div class="u-login__input">
                         <label for="password">
@@ -34,36 +45,77 @@
                                 *
                             </span>
                         </label>
-                        <input type="text" id="password">
+                        <input type="password" value="<%= typeof password != 'undefined' ? password : '' %>"
+			       name="password" id="password">
                     </div>
                     <div class="u-login__input">
-                        <label for="confirm password">
+                        <label for="confirmPassword">
                             Confirm Password
                             <span>
                                 *
                             </span>
                         </label>
-                        <input type="text" id="MiniiOdkoEniigShaachnoo">
+                        <input type="password"   value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+			       name="password2"  id="confirmPassword">
                     </div>
                     <div class="u-login__input">
-                        <label for="number">
-                            Phone
-                            <span>
-                                
-                            </span>
-                        </label>
-                        <input type="text" id="MiniiOdkoEniigShaachnoo">
-                    </div>
-                    <div class="u-login__input">
-                        <label for="state">
-                            State
+                        <label for="firstName">
+                            First Name
                             <span>
                                 *
                             </span>
                         </label>
-                        <input type="text" id="state">
+                        <input type="text"  value="<%= typeof fname != 'undefined' ? fname : '' %>"
+			       name="fname" id="firstName">
                     </div>
-                    <button>Sign Up</button>
+                    <div class="u-login__input">
+                        <label for="lastName">
+                            Last Name
+                            <span>
+                                *
+                            </span>
+                        </label>
+                        <input type="text"  value="<%= typeof lname != 'undefined' ? lname : '' %>"
+			       name="lname" id="lastName">
+                    </div>
+                    <div class="u-login__input">
+                        <label for="city">
+                            City 
+                            <span>
+                                *
+                            </span>
+                        </label>
+                        <input type="text" value="<%= typeof city != 'undefined' ? city : '' %>"
+			       name="city" id="city">
+                    </div>
+                    <div class="u-login__input">
+                        <label for="country">
+                            Country
+                            <span>
+                                *
+                            </span>
+                        </label>
+                        <input type="text" value="<%= typeof country != 'undefined' ? country : '' %>"
+			       name="country" id="country">
+                    </div>
+                    <div class="u-login__input">
+                        <label for="postalCode">
+                            Postal Code
+                            <span>
+                                *
+                            </span>
+                        </label>
+			<input type="number" value="<%= typeof postalCode != 'undefined' ? postalCode : '' %>" 
+			       name="postalCode" id="postalCode">
+                    </div>
+		    <% if(typeof errors != 'undefined') { %>
+		      <div>
+			<% errors.forEach(function(error){ %>
+			  <p><%= error.msg %></p>
+			<% }); %>
+		      </div>
+		    <% } %>
+                    <button type="submit">Sign Up</button>
                 </form>
             </div>
         </div>
