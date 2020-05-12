@@ -4,6 +4,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+const mongoose = require('mongoose');
+
+// DB CONNECTION
+
+const db = require('./config/keys').MongoURI;
+mongoose.connect(db,{ useNewUrlParser: true , useUnifiedTopology: true })
+  .then( ()=> console.log("Successfully Connected To MongoDB") )
+  .catch( err => console.log("MongoDB Error" + err) )
 
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/product');
