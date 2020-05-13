@@ -156,22 +156,16 @@
                             <div class="content">
                                 <form>
                                     <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Pornhub</label>
-                                                <input type="text" class="form-control" disabled placeholder="Company" value="pornhub">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username">
+						<input type="text" class="form-control" value='<%= username %>' placeholder="Username">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" placeholder="Email">
+                                                <input type="email" class="form-control" value='<%= email %>' placeholder="Email">
                                             </div>
                                         </div>
                                     </div>
@@ -180,13 +174,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input type="text" class="form-control" placeholder="Company">
+                                                <input type="text" class="form-control" value='<%= f_name %>' placeholder="Company">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name">
+                                                <input type="text" class="form-control" value='<%= l_name %>' placeholder="Last Name">
                                             </div>
                                         </div>
                                     </div>
@@ -204,19 +198,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input type="text" class="form-control" placeholder="City">
+                                                <input type="text" class="form-control" value='<%= city %>' placeholder="City">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Country</label>
-                                                <input type="text" class="form-control" placeholder="Country">
+                                                <input type="text" class="form-control" value='<%= country %>'  placeholder="Country">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Postal Code</label>
-                                                <input type="number" class="form-control" placeholder="ZIP Code">
+                                                <input type="number" class="form-control" value='<%= postalCode %>'  placeholder="ZIP Code">
                                             </div>
                                         </div>
                                     </div>
@@ -327,14 +321,6 @@
 
       demo.initChartist();
 
-      $.notify({
-	icon: 'pe-7s-gift',
-	message: "Minii odko end yu orohiig shiidchih"
-
-      },{
-	type: 'info',
-	timer: 4000
-      });
 
     });
   </script>

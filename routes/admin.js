@@ -7,7 +7,8 @@ router.use('/dashboard',ensureAuthenticated,(req,res) => {
 });
 
 router.use('/profile', ensureAuthenticated,(req,res) => {
-  res.render('admin-profile');
+  const { username,password,email,f_name,l_name,city,country,postalCode} = req.user;
+  res.render('admin-profile', { username,password,email,f_name,l_name,city,country,postalCode});
 });
 
 router.use('/products', ensureAuthenticated,(req,res) => {

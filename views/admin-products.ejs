@@ -155,24 +155,26 @@
                                 <h4 class="title">Add product</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="" method="post">
                                     <div class="row">
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label>Product Name</label>
-                                                <input type="text" class="form-control" placeholder="Name" value="">
+                                                <input type="text" name="name" class="form-control" placeholder="Name" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label>Product Price(Ereen)</label>
-                                                <input type="text" class="form-control" placeholder="$123" value="">
+                                                <label>Supplier Price</label>
+                                                <input type="text" name="supply_price" 
+						       class="form-control" placeholder="$123" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label>Product Price(Ulaanbaatar)</label>
-                                                <input type="email" class="form-control" placeholder="$123">
+                                                <label>Product Price</label>
+                                                <input type="email" name="product_price" 
+						       class="form-control" placeholder="$123">
                                             </div>
                                         </div>
                                     </div>
@@ -180,8 +182,9 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Image link</label>
-                                                <input type="text" class="form-control" placeholder="Insert image" value="">
+                                                <label>Image</label>
+                                                <input type="text" name="img_url"
+						       class="form-control" placeholder="Insert image" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -202,7 +205,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Navigation1</label>
+                                                <label>Category</label>
                                                 <select type="text" class="form-control" placeholder="Stock" value="">
                                                     <option disabled selected>-Select-</option>
                                                     <option value="Playground">Playground</option>
@@ -214,7 +217,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Navigation2</label>
+                                                <label>Tag</label>
                                                 <select type="text" class="form-control" placeholder="Stock" value="">
                                                     <option disabled selected>-Select-</option>
                                                     <option value="gloves">Gloves</option>
@@ -230,7 +233,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Descipriton</label>
-                                                <textarea rows="5" class="form-control" placeholder="Product Description" value=""></textarea>
+                                                <textarea rows="5" name="desc" class="form-control" placeholder="Product Description" value=""></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -309,15 +312,6 @@
     $(document).ready(function(){
 
       demo.initChartist();
-
-      $.notify({
-	icon: 'pe-7s-gift',
-	message: "Minii odko end yu orohiig shiidchih"
-
-      },{
-	type: 'info',
-	timer: 4000
-      });
 
     });
   </script>
