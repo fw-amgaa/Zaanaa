@@ -183,7 +183,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Image</label>
-                                                <input type="text" name="img_url"
+                                                <input type="url" name="img_url"
 						       class="form-control" placeholder="Insert image" value="">
                                             </div>
                                         </div>
@@ -208,10 +208,9 @@
                                                 <label>Category</label>
                                                 <select type="text" class="form-control" placeholder="Stock" value="">
                                                     <option disabled selected>-Select-</option>
-                                                    <option value="Playground">Playground</option>
-                                                    <option value="Toys">Toys</option>
-                                                    <option value="Equipment">Equipment</option>
-                                                    <option value="Outside">Outside</option>
+						    <% for(i of categories ) { %>
+						      <option value="<%= i.name %>"><%= i.name %></option>
+						    <% }; %>
                                                 </select>
                                             </div>
                                         </div>
