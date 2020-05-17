@@ -17,16 +17,16 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Category:{
+  categories:{
     type: Array,
   },
-  Tags:{
+  tags:{
     type: Array,
   },
-  Description:{
+  description:{
     type: String,
   },
-  Quantity:{
+  quantity:{
     type: Number,
     default: 0
   },

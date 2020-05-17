@@ -106,7 +106,6 @@
                         <li>
                            <a href="">
                                 <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
                             </a>
                         </li>
                     </ul>
@@ -159,81 +158,24 @@
                                     <thead>
                                         <th>ID</th>
                                     	<th>Product Name</th>
-                                    	<th>Price(ER)</th>
-                                    	<th>Price(UB)</th>
-                                        <th>Description</th>
-                                        <th>Nav</th>
-                                        <th>Image</th>
-                                        <th>Upload date</th>
-                                        <th>Uploaded By</th>
+                                    	<th>Supplier Price(ER)</th>
+                                    	<th>Product Price(UB)</th>
+                                        <th>Categories</th>
+                                        <th>Tags</th>
+                                        <th>Quantity</th>
                                     </thead>
                                     <tbody>
+				      <% for(i of products){ %>
                                         <tr>
-                                        	<td>1</td>
-                                        	<td>Dakota Rice</td>
-                                        	<td>$36,738</td>
-                                        	<td>$36,738</td>
-                                            <td>eroihgretighur tiuhjrti uhjrti hu erohijrtohij rtoihj</td>
-                                            <td>Equipment > Gloves</td>
-                                            <td>porn pic</td>
-                                            <td>2020/69/420</td>
-                                            <td>odko</td>
+					    <td><%= i.id %></td>
+					    <td><%= i.name %></td>
+					    <td><%= i.supplierPrice %></td>
+					    <td><%= i.productPrice %></td>
+					    <td><%= i.categories %></td>
+					    <td><%= i.tag %></td>
+					    <td><%= i.quantity %></td>
                                         </tr>
-                                        <tr>
-                                        	<td>2</td>
-                                        	<td>Minerva Hooper</td>
-                                        	<td>$23,789</td>
-                                        	<td>$36,738</td>
-                                            <td>odko</td>
-                                            <td>Equipment > Gloves</td>
-                                            <td>porn pic</td>
-                                            <td>2020/69/420</td>
-                                            <td>odko</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>3</td>
-                                        	<td>Sage Rodriguez</td>
-                                        	<td>$56,142</td>
-                                        	<td>$36,738</td>
-                                            <td>mani chin</td>
-                                            <td>Equipment > Gloves</td>
-                                            <td>porn pic</td>
-                                            <td>2020/69/420</td>
-                                            <td>odko</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>4</td>
-                                        	<td>Philip Chaney</td>
-                                        	<td>$38,735</td>
-                                        	<td>$36,738</td>
-                                            <td>gg</td>
-                                            <td>Equipment > Gloves</td>
-                                            <td>porn pic</td>
-                                            <td>2020/69/420</td>
-                                            <td>amgaa</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>5</td>
-                                        	<td>Doris Greene</td>
-                                        	<td>$63,542</td>
-                                        	<td>$36,738</td>
-                                            <td>shaalguuljiinaa</td>
-                                            <td>Equipment > Gloves</td>
-                                            <td>porn pic</td>
-                                            <td>2020/69/420</td>
-                                            <td>odko</td>
-                                        </tr>
-                                        <tr>
-                                        	<td>6</td>
-                                        	<td>Mason Porter</td>
-                                        	<td>$78,615</td>
-                                        	<td>$36,738</td>
-                                            <td>(send help)</td>
-                                            <td>Equipment > Gloves</td>
-                                            <td>porn pic</td>
-                                            <td>2020/69/420</td>
-                                            <td>amgaa</td>
-                                        </tr>
+				      <% } %>
                                     </tbody>
                                 </table>
 

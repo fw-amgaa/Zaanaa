@@ -39,6 +39,7 @@ router.post('/signup', (req,res) => {
   const {username,email,password,password2,fname,lname,city,country,postalCode} = req.body
   let errors =[];
 
+  // VALIDATION
   if(!username||!email||!password||!password2||!fname||!lname||!city||!country||!postalCode){
     errors.push({msg:'Please fill in all fields!'})
   }
