@@ -17,15 +17,25 @@
         <div class="c-content u__flex-container2">
             <div class="u-login">
                 <h2>Login</h2>
-                <form action="" id="login">
+		<% if(success_msg != '') { %>
+		  <div>
+		    <p><%= success_msg %></p>
+		  </div>
+		<%} %>
+		<% if(error_msg != '') { %>
+		  <div>
+		    <p><%= error_msg %></p>
+		  </div>
+		<%} %>
+                <form action="" method="post" id="login">
                     <div class="u-login__input">
                         <label for="username">
-                            Username or email address
+                            Email address
                             <span>
                                 *
                             </span>
                         </label>
-                        <input type="text" id="username">
+                        <input type="text" name="email" id="username">
                     </div>
                     <div class="u-login__input">
                         <label for="password">
@@ -34,13 +44,10 @@
                                 *
                             </span>
                         </label>
-                        <input type="text" id="password">
+                        <input type="password" name="password" id="password">
                     </div>
-                    <button>Log In</button>
+                    <button type="submit">Log In</button>
                     <a href="">Lost your password?</a>
-                </form>
-                <form action="" id="loginbyodko">
-                    
                 </form>
             </div>
         </div>

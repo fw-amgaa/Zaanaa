@@ -4,38 +4,62 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+const mongoose = require('mongoose');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+
+// DB CONNECTION
+
+const db = require('./config/keys').MongoURI;
+mongoose.connect(db,{ useNewUrlParser: true , useUnifiedTopology: true })
+  .then( ()=> console.log("Successfully Connected To MongoDB") )
+  .catch( err => console.log("MongoDB Error" + err) )
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 const productRouter = require('./routes/product');
+const adminRouter = require('./routes/admin');
 
 var app = express();
 
-// view engine setup
+require('./config/passport')(passport);
+
+
+// Template Engine Setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+// Body Parser
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: 'zaanaaIsLife',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+app.use(flash())
+
+app.use( (req,res,next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('errors_msg');
+  res.locals.error = req.flash('error');
+  next();
+})
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// ROUTES
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/products', productRouter);
 
-app.use('/contact', (req,res) => {
-  res.render('contact');
-});
-
-app.use('/login', (req,res) => {
-  res.render('login');
-});
-
-app.use('/signup', (req,res) => {
-  res.render('signup');
-});
 
 app.use('/profile', (req,res) => {
   res.render('profile');
